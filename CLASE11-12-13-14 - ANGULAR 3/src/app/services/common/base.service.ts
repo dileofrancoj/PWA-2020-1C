@@ -26,6 +26,7 @@ export class BaseService {
 
   proccessError(obj) {
     if(obj.status == 401) {
+      sessionStorage.clear();
       this.router.navigate(['login'])
       // navigate ( permisosPage  ) -> no tenes acceso a este sitio 
     } else if(obj.status == 404) {

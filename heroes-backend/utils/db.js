@@ -17,3 +17,9 @@ async function pool() {
 module.exports = {
     pool
 }
+
+// aquaman.png
+// <img src ="/assets/img/{{imagen}}">
+
+// assets/img/aquaman.png
+// <img [src] = "imagen"
