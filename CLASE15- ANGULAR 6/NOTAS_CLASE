@@ -1,0 +1,77 @@
+
+Pasar
+	 login , aside , guardian
+
+CLASE 15 - ANGULAR (ROUTING + FIREBASE)
+CLASE 16 - REPASO FIREBASE + IMPLEMENTACION DE MODALS
+CLASE 17 - ANGULAR + NODE (SUBIDA DE ARCHIVOS)
+CLASE 18 - REACT (APLICACION BÁSICA | COMPONENTES | PROPS Y STATE)
+CLASE 19 - REACT (MANEJO DE FORMULARIOS , ROUTING Y STYLING)
+CLASE 20 - REACT (PETICIONES HTTP FETCH)
+CLASE 21 - SERVIDORES (AWS)
+CLASE 22 - SERVIDORES (AWS)
+CLASE 23 - AUTH0
+CLASE 24 - EJEMPLO DE NODE + MERCADOPAGO
+
+---------------------------------------------------------------------------------------------------
+
+DUDAS CLASE "HEROES"
+
+OAuth -> Permisos los provee el backend
+
+Pasar
+	 login , aside , guardian
+---------------------------------------------------------------------------------------------------
+
+Modulos : 
+	Elemento principal para organizar el codigo.
+	Separar responsabilidades 
+	Si queremos agregar nuevas funcionalidades (aplicaciones grandes -> desorganizado)
+
+									Reutilizar common layouts
+
+
+1. El componente no se vuelve a crear con cada llamada
+2. Cada componente importa sus propios modulos (app.module.ts)
+	-> Login (FormsModule, httpClientModule)
+	-> Productos (HttpClientModule)
+3. Disminucion de tiempo de carga global de la aplicacion
+
+4. Evento NavigationEnd -> Evento disparado cuando la navegacion termina
+5. Cada componente tendrá : 
+		-> su propio modulo
+		-> su propio routing
+
+Crear elementos de CLI : 
+	ng g c -> componentes
+	ng g g -> guardians
+	ng g s -> servicios
+	ng g m -> modulos
+------------------------------------------------------------------------------
+a. Crear un modulo  de layout  			ng g m layout
+b. Crear componente header /layout 		ng g c layout/header
+c. Crear componente login (+ modulo + routing)
+	ng g c components/login
+	ng g m components/login --routing
+d. Crear componente dashboard (+modulo + routing)
+
+
+Crear routing de la aplicacion con modulos y routes independientes
+	1. app.module.ts -> Se cargan solo los modulos de la aplicacion (no los componentes)
+		-> imports : [Layout, Dashboard, Login]
+
+	The path-matching strategy, one of 'prefix' or 'full'. Default is 'prefix'.
+	https://angular.io/api/router/Route
+
+	2. app-routing.module.ts -> Routing -> default
+				const routes : [
+					{path : '', redirectTo : '/dashboard', pathMatch : 'full'}
+				]
+	(cada modulo importa su propio componente)
+	3. login.module.ts
+		declarations : [LoginComponent]
+	  imports: [
+	    CommonModule,
+	    LoginRoutingModule
+	  ]
+
