@@ -1,0 +1,109 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <table class="table text-center">
+        <thead class="table-primary">
+          <tr>
+            <th>Variable</th>
+            <th>Pipe</th>
+            <th>Variable | Pipe</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+          <td>
+            {{nombre}}
+          </td>
+          <td>
+            uppercase
+          </td>
+          <td>{{nombre | uppercase}}</td>
+        </tr>
+        <tr>
+
+          <td>
+            {{nombre_upper}}
+          </td>
+          <td>
+            lowercase
+          </td>
+          <td>{{nombre_upper | lowercase}}</td>
+        </tr>
+
+        <tr>
+
+          <td>
+            {{PI}}
+          </td>
+          <td>
+            number
+          </td>
+          <td>{{PI | number : '1.0-2'}}</td>
+        </tr>
+        <tr>
+
+          <td>
+            {{sueldo}}
+          </td>
+          <td>
+            currency
+          </td>
+          <td>{{sueldo | currency : pipe_usuario}}</td>
+        </tr>
+        <tr>
+
+          <td>
+            {{date}}
+          </td>
+          <td>
+            date
+          </td>
+          <td>{{date | date: 'dd-MM-yyyy'}}</td>
+        </tr>
+        <tr>
+
+          <td>
+            {{nombre}}
+          </td>
+          <td>
+            slice
+          </td>
+          <td>{{nombre | slice:3}}</td>
+        </tr>
+        <tr>
+
+          <td>
+            {{nombre}}
+          </td>
+          <td>
+            slice
+          </td>
+          <td>{{nombre | slice:0:3}}</td>
+        </tr>
+        <tr>
+
+          <td>
+            {{vec_slice}}
+          </td>
+          <td>
+            slice
+          </td>
+          <td>{{vec_slice | slice:0:3}}</td>
+        </tr>
+        <tr>
+
+          <td>
+            {{nombre_completo}}
+          </td>
+          <td>
+            cap
+          </td>
+          <td>{{nombre_completo | cap}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<router-outlet></router-outlet>
