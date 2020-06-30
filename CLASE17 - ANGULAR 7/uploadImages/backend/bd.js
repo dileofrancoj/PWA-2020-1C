@@ -1,6 +1,6 @@
 const MongoClient = require("mongodb").MongoClient;
 
-const pool = () => {
+const pool = async () => {
   const url = process.env.URL_DB;
   const dbName = process.env.DB_NAME;
   let client;
@@ -13,5 +13,5 @@ const pool = () => {
   }
 
   client ? client.close() : null;
-}
+};
 module.exports = { pool };
