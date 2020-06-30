@@ -1,1 +1,64 @@
-<p>alta works!</p>
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <h4>Alta de Jugadores</h4>
+      <form [formGroup]="form">
+        <div class="form-group">
+          <label for="nombre">Nombre *</label>
+          <input
+            type="text"
+            id="nombre"
+            class="form-control"
+            placeholder="nombre"
+            formControlName="nombre"
+          />
+        </div>
+        <div class="form-group">
+          <label for="nombre">Equipo *</label>
+          <input
+            type="text"
+            id="equipo"
+            class="form-control"
+            placeholder="equipo"
+            formControlName="equipo"
+          />
+        </div>
+        <div class="form-group">
+          <label for="goles">Goles *</label>
+          <input
+            type="number"
+            id="goles"
+            class="form-control"
+            placeholder="goles"
+            formControlName="goles"
+          />
+        </div>
+        <div class="form-group">
+          <label for="foto">Foto *</label>
+          <input
+            type="file"
+            id="foto"
+            formControlName="foto"
+            class="form-control"
+            (change)="onFileSelected($event)"
+          />
+        </div>
+        <div class="col-3" *ngIf="previewUrl">
+          <img [src]="previewUrl" style="width: 250px; height: auto;" />
+        </div>
+        <button
+          type="button"
+          (click)="upload()"
+          class="btn btn-primary btn-block"
+        >
+          Alta de jugador
+        </button>
+      </form>
+    </div>
+    <!-- <select #select (change) = testSelect(select.value)> -->
+    <!-- <select class="form-control" (change)="testSelect($event)">
+      <option value="uno">1</option>
+      <option value="dos">2</option>
+    </select> -->
+  </div>
+</div>

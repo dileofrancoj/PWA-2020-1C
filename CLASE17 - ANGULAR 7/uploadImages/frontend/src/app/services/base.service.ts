@@ -56,11 +56,9 @@ export class BaseService {
 
   async post(obj) {
     try {
-      const options = this.getHttpOptions();
-      console.log("se envia a : ", this.urlServer + this.endpoint);
-      return this.http
-        .post(this.urlServer + this.endpoint, obj, options)
-        .toPromise();
+      // const options = this.getHttpOptions();
+      // console.log("se envia a : ", this.urlServer + this.endpoint);
+      return this.http.post(this.urlServer + this.endpoint, obj).toPromise();
     } catch (error) {
       if (error.status === 401) {
         this.procesarRespuestaError();
