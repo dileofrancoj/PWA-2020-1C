@@ -3,6 +3,10 @@ import { Routes, RouterModule } from "@angular/router";
 
 const routes: Routes = [
   { path: "alta", loadChildren: "./components/alta/alta.module#AltaModule" },
+  {
+    path: "login",
+    loadChildren: "./components/login/login.module#LoginModule",
+  },
 ];
 
 @NgModule({
