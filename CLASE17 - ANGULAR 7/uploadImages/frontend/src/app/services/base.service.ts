@@ -13,22 +13,25 @@ export class BaseService {
   constructor(protected http: HttpClient, protected router: Router) {}
 
   private getHttpOptions() {
-    let httpOptions = {};
-    if (sessionStorage.getItem("JWT")) {
-      httpOptions = {
-        headers: new HttpHeaders({
-          Authorization: "Bearer " + JSON.parse(sessionStorage.getItem("JWT")),
-        }),
-      };
-    } else {
+    try {
+      let httpOptions = {};
+      if (sessionStorage.getItem("JWT")) {
+        httpOptions = {
+          headers: new HttpHeaders({
+            Authorization: "Bearer " + sessionStorage.getItem("JWT"),
+          }),
+        };
+      }
+      return httpOptions;
+    } catch (error) {
+      console.log(error);
     }
-    return httpOptions;
   }
 
   setEndPoint(endpoint) {
     this.endpoint = endpoint;
   }
-  async get(queryParams: string = null) {
+  async get() {
     try {
       const options = this.getHttpOptions();
       return await this.http

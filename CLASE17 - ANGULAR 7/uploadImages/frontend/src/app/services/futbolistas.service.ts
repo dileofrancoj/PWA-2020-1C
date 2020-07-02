@@ -4,11 +4,12 @@ import { Injectable } from "@angular/core";
 @Injectable({
   providedIn: "root",
 })
-export class AuthService extends BaseService {
-  login(obj) {
+export class FutbolistasService extends BaseService {
+  list() {
     try {
-      this.setEndPoint("auth");
-      return this.post(obj);
+      this.setEndPoint("futbolistas");
+      console.log(`${this.urlServer}${this.endpoint}`);
+      return this.get();
     } catch (error) {
       throw error;
     }

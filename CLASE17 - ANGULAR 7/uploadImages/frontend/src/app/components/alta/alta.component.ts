@@ -12,7 +12,7 @@ export class AltaComponent implements OnInit {
   previewUrl: any;
   selectedFile: File;
   isLoaded: boolean;
-
+  usuario: string;
   formObject = {
     nombre: new FormControl("", [Validators.required]),
     equipo: new FormControl("", [Validators.required]),
@@ -24,6 +24,7 @@ export class AltaComponent implements OnInit {
   ngOnInit() {
     this.isLoaded = false;
     this.form = new FormGroup(this.formObject);
+    this.usuario = sessionStorage.getItem("usuario");
     this.isLoaded = !this.isLoaded;
   }
 

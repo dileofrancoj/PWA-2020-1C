@@ -7,6 +7,11 @@ const routes: Routes = [
     path: "login",
     loadChildren: "./components/login/login.module#LoginModule",
   },
+  {
+    path: "futbolistas",
+    loadChildren:
+      "./components/futbolistas/futbolistas.module#FutbolistasModule",
+  },
 ];
 
 @NgModule({

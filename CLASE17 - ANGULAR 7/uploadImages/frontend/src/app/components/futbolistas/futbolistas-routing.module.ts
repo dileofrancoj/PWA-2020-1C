@@ -1,13 +1,11 @@
-import { AuthGuard } from "./../../auth.guard";
-import { AltaComponent } from "./alta.component";
+import { FutbolistasComponent } from "./futbolistas.component";
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 
 const routes: Routes = [
   {
     path: "",
-    component: AltaComponent,
-    canActivate: [AuthGuard],
+    component: FutbolistasComponent,
   },
 ];
 
@@ -15,4 +13,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class AltaRoutingModule {}
+export class FutbolistasRoutingModule {}

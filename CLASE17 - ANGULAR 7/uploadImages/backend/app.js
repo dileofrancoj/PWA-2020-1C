@@ -5,13 +5,15 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 const dotenv = require("dotenv");
 const cors = require("cors");
-
+const fs = require("fs");
+const jwt = require("jsonwebtoken");
 dotenv.config();
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 const adminRouter = require("./routes/admin");
 const authRouter = require("./routes/auth");
+const futbolistasRouter = require("./routes/futbolistas");
 var app = express();
 app.use(cors());
 // view engine setup
@@ -24,10 +26,24 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
+secured = (req, res, next) => {
+  try {
+    let token = req.headers.authorization;
+    token = token.replace("Bearer ", "");
+    const publicKey = fs.readFileSync("utils/keys/publica.pem");
+    const decoded = jwt.verify(token, publicKey);
+    req.id = decoded.id;
+    next();
+  } catch (error) {
+    res.sendStatus(401);
+  }
+};
+
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
-app.use("/admin", adminRouter);
+app.use("/admin", secured, adminRouter);
 app.use("/auth", authRouter);
+app.use("/futbolistas", futbolistasRouter);
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));

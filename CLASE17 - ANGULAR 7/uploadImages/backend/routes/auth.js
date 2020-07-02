@@ -17,7 +17,7 @@ const auth = async (req, res) => {
       const token = jwt.sign(payload, private, signOptions);
       res.json({ usuario, JWT: token });
     } else {
-      res.sendStatus(401);
+      res.json({});
     }
   } catch (error) {
     console.log(error);
