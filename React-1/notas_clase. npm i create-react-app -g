@@ -1,0 +1,66 @@
+1R. npm i create-react-app -g
+1A. npm i @angular/cli
+
+2R. create-react-app [proyecto]
+2A. ng new [proyecto]
+
+create-react-app proyecto01
+create-react-app presupuesto
+
+
+------------------------------------------------------------------------------------------------
+create-react-app -> (JSX -> Babel -> .JS)
+React Libreria vs Angular Framework
+
+React -> Manejar el DOM
+                --> Estado de todos los elementos del DOM
+      -> JSX (Javascript XML)
+
+Componentes
+    -> Estatales : Componentes basados en Clase
+    16/17.1 -> Funcionales ->  Hooks
+-------------------------------------------------------------------------------------------
+
+App.js -> Index.js -> Index.html
+
+---------------------------------------------------------------------------------
+const App = () => {
+  // JSX
+  // Antes del return es un buen lugar para poner logica.
+
+  const nombre = "Franco";
+  const nickname = "Frantuko";
+  const edad = 26;
+  const casado = false ? "Si" : "No";
+  const mascotas = [
+    { id: 1, nombre: "Amazonas", tipo: "🐶" },
+    { id: 2, nombre: "chiguire", tipo: "🐭" },
+    { id: 3, nombre: "Puchi", tipo: "🐕" },
+  ];
+  return (
+    <div>
+      <h4>Nombre : {nombre}</h4>
+      <h4>Nickname : {nickname}</h4>
+      <h4>Edad : {edad}</h4>
+      <h4>Casado : {casado}</h4>
+      <h5>Expresion {10 + 15}</h5>
+      <ul>
+        {mascotas.map(({ id, nombre, tipo }) => (
+          <li key={id}>
+            {nombre} {tipo}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+props -> Pasar información de Padre -> Hijo
+
+JAVASCRIPT -> onclick
+Angular    -> click
+React      -> onClick (prefijo on)
+
+
+Chrome React Dev Tools
+React Dev Tools
