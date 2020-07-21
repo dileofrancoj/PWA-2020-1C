@@ -13,8 +13,8 @@ const Presupuesto = ({ setPresupuesto }) => {
       setError(true);
       return;
     }
+    // setPresupuesto es un hook del app y se pasa al hijo mediante las props
     setPresupuesto(cantidad);
-    // mensaje presupuesto aprobado
   };
   return (
     <Fragment>
