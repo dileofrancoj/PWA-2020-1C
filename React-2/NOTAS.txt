@@ -1,0 +1,10 @@
+Hooks -> Componentes funcionales
+
+Ciclo de vida de un Componente
+    
+    Cuando el componente es montado -> Analogia (ngOnInit)
+    Cuando el componente es actualizado - >Analogia (ngOnUpdate)
+    Cuando el componente muere -> Analogia (ngOnDestroy)
+
+
+    useEffect() (Montaje (carga inicial), actualización , destrucción)

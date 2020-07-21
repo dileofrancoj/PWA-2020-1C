@@ -1,23 +1,25 @@
 import React, { Fragment, useState } from "react";
-const Presupuesto = () => {
+import Error from "./Error";
+const Presupuesto = ({ setPresupuesto }) => {
   const [cantidad, setCantidad] = useState(0);
+  const [error, setError] = useState(false);
   const handler = (e) => {
     setCantidad(parseFloat(e.target.value));
   };
   const submit = (e) => {
     e.preventDefault();
     // Validar mi presupuesto
-    console.log(cantidad);
     if (cantidad <= 0 || isNaN(cantidad)) {
-      console.log("Invalido");
+      setError(true);
       return;
     }
-    console.log("Submit event");
+    setPresupuesto(cantidad);
     // mensaje presupuesto aprobado
   };
   return (
     <Fragment>
       <h2>Colocá tu Presupuesto</h2>
+      {error ? <Error error="El presupuesto es invalido" /> : null}
       <form onSubmit={submit}>
         <div className="form-group">
           <input
