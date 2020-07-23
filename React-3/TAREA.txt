@@ -1,0 +1,12 @@
+TAREA 2 -> ARMAR API DE AVENGERS
+https://marvelapp.com/developers/documentation/authentication
+
+https://rickandmortyapi.com/documentation
+Aplicacion que tenga los siguientes elementos
+    - Nav (componente) -> titulo se pase a través de las props + Menu de navegación
+        Caracteres
+        Ubicaciones
+        Episodios
+    - Footer (componente) -> Nombre, año, etc
+    
+    Cada componente debe hacer una solicitud HTTP a la API  se debe mostrar en formato card para caracteres, table para episodios y ubicaciones en table
