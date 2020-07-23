@@ -1,11 +1,11 @@
 // Mostrar todos los gastos
 import React from "react";
 import Gasto from "./Gasto";
-const Listar = ({ gastos }) => {
+const Listar = ({ gastos, eliminar }) => {
   return (
     <div>
       <h4>Mis gastos</h4>
-      <Gasto gastos={gastos} />
+      <Gasto gastos={gastos} eliminar={eliminar} />
     </div>
   );
 };

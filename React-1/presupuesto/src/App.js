@@ -13,6 +13,12 @@ const App = () => {
     setGastos([...gastos, gasto]);
     console.log(gastos);
   };
+
+  const eliminar = (id) => {
+    // busco por id el elemento y lo elimino
+    gastos = gastos.filter((gasto) => gasto.id !== id);
+    setGastos(gastos);
+  };
   return (
     <div className="container-fluid">
       <Header nombre="Header 🔥" />
@@ -27,7 +33,7 @@ const App = () => {
           <Formulario setGastos={setGastos} agregarNuevo={agregarNuevo} />
         </div>
         <div className="col-4">
-          <Listar gastos={gastos} />
+          <Listar eliminar={eliminar} gastos={gastos} />
         </div>
       </div>
     </div>
